@@ -13,8 +13,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-if "GOOGLE_API_KEY" not in os.environ:
-    os.environ["GOOGLE_API_KEY"] = getpass.getpass("Provide your Google API key here")
+genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
 # load pdf and extract text
 def get_pdf_text(pdf_docs):
